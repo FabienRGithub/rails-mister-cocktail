@@ -1,10 +1,17 @@
 <h1> Our cocktails</h1>
-<ul>
-  <%  @cocktails.each do |cocktail|%>
-  <li><%= cocktail.name %></li>
-  <%= link_to 'See cocktails details', cocktail_path(cocktail), class: "btn btn-primary" %>
-  <% end %>
-</ul>
+<div class="container">
+  <ul>
+    <%  @cocktails.each do |cocktail|%>
+    <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+    <div class="card-product-infos">
+      <h2><%= cocktail.name %></h2>
+      <%= link_to 'See cocktails details', cocktail_path(cocktail), class: "btn btn-primary" %>
+    </div>
+  </div>
+    <% end %>
+  </ul>
 
-<%= link_to 'Create a new cocktail', new_cocktail_path, class: "btn btn-primary" %>
+  <%= link_to 'Create a new cocktail', new_cocktail_path, class: "btn btn-primary" %>
 
+</div>
