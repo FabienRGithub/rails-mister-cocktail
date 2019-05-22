@@ -1,16 +1,28 @@
-<h1> Our cocktails</h1>
-<div class="container">
-  <ul>
-    <%  @cocktails.each do |cocktail|%>
-    <div class="card-product">
-      <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
-      <h2><%= cocktail.name %></h2>
-      <%= link_to 'See cocktails details', cocktail_path(cocktail), class: "btn btn-primary" %>
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1519214605650-76a613ee3245?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80);">
+  <div class="container">
+    <h1>Mister Cocktail: <strong>sans alcool</strong></h1>
+    <p>La fête est plus folle</p>
+    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
   </div>
+</form>
+  </div>
+</div>
+
+
+<div class="container mt-3">
+  <h1> Our cocktails</h1>
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.photo %>)">
+        <%= cocktail.name %>
+        <%= link_to "", cocktail_path(cocktail), class: "card-link" %>
+      </div>
     <% end %>
-  </ul>
-
+  </div>
   <%= link_to 'Create a new cocktail', new_cocktail_path, class: "btn btn-primary" %>
-
 </div>
